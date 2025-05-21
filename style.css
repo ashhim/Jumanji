@@ -1,28 +1,39 @@
-const express = require('express');
-const http = require('http');
-const { Server } = require('socket.io');
+body {
+  background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Papyrus', fantasy;
+  color: #fff;
+  text-align: center;
+}
 
-const app = express();
-const server = http.createServer(app);
-const io = new Server(server);
+.container {
+  background-color: rgba(0, 100, 0, 0.6);
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+}
 
-// Serve frontend files if you want (optional)
-// app.use(express.static('public'));
+#chat-window {
+  margin-top: 20px;
+}
 
-io.on('connection', (socket) => {
-  console.log('A user connected:', socket.id);
+#messages {
+  max-height: 300px;
+  overflow-y: auto;
+  text-align: left;
+  margin-bottom: 10px;
+}
 
-  socket.on('chat message', (msg) => {
-    // Broadcast message to everyone except sender
-    socket.broadcast.emit('chat message', msg);
-  });
+input, button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+}
 
-  socket.on('disconnect', () => {
-    console.log('User disconnected:', socket.id);
-  });
-});
-
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+#send-btn {
+  background-color: #228B22;
+  color: white;
+}
