@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Jumanji Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jumanji – The Jungle Chat</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to Jumanji - Jungle Random Chat</h1>
-  <div id="status">Connecting to server...</div>
-  <div id="chat" style="display:none;">
-    <div id="messages"></div>
-    <input id="msgInput" placeholder="Type message..." autocomplete="off" />
-    <button id="sendBtn">Send</button>
+  <div class="container">
+    <h1>🌴 Welcome to the Jungle of Random Connections 🌴</h1>
+    <div id="chat-window">
+      <div id="messages"></div>
+      <input id="msg-input" type="text" placeholder="Type your jungle call...">
+      <button id="send-btn">Send</button>
+    </div>
+    <div id="xp">XP: 0</div>
   </div>
-
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
   <script src="chat.js"></script>
 </body>
 </html>
